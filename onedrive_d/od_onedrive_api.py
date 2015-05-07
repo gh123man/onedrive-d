@@ -514,7 +514,7 @@ class OneDriveAPI:
 				res_id = response.headers['x-resource-id']
 				response.close()
 				self.logger.debug('BITS session successfully closed.')
-				return self.get_property('file.' + res_id[:res_id.index('!')] + '.' + res_id)
+				return self.get_property('file.' + folder_id.split('.')[1] + '.' + res_id)
 			except OneDriveAuthError:
 				self.auto_recover_auth_error()
 			except requests.exceptions.ConnectionError:
